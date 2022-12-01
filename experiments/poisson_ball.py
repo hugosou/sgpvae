@@ -183,7 +183,7 @@ def main(args):
             0, x[-1].item(), steps=args.num_inducing, device=device).unsqueeze(1)
 
         model = sgpvae.models.SGPVAE(
-            likelihood, variational_dist, args.latent_dim, kernel, z_init,
+            likelihood.to(device.index), variational_dist.to(device.index), args.latent_dim, kernel, z_init,
             add_jitter=args.add_jitter, fixed_inducing=args.fixed_inducing)
 
     elif args.model == 'vae':
