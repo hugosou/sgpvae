@@ -182,8 +182,11 @@ def main(args):
         z_init = torch.linspace(
             0, x[-1].item(), steps=args.num_inducing, device=device).unsqueeze(1)
 
+        likelihood = likelihood.to(device.index)
+        variational_dist = variational_dist.to(device.index)
+
         model = sgpvae.models.SGPVAE(
-            likelihood.to(device.index), variational_dist.to(device.index), args.latent_dim, kernel, z_init,
+            likelihood, variational_dist, args.latent_dim, kernel, z_init,
             add_jitter=args.add_jitter, fixed_inducing=args.fixed_inducing)
 
         print('LOOK HERE')
