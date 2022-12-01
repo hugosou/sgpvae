@@ -286,6 +286,11 @@ class SGPVAE(GPVAE):
         qf, qu = self.qf(x, pu=pu, lf=lf)
 
         # KL(q(u) || p(u)) term.
+
+        print('hhere')
+        print(qu.device)
+        print(pu.device)
+
         kl = kl_divergence(qu, pu).sum()
 
         # log p(y|f) term.
