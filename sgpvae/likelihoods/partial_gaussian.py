@@ -42,8 +42,8 @@ class FactorNet(Likelihood):
 
     def forward(self, z, mask=None):
         """Returns parameters of a diagonal Gaussian distribution."""
-        np_1 = torch.zeros(z.shape[0], z.shape[1], self.out_dim)
-        np_2 = torch.zeros_like(np_1)
+        np_1 = torch.zeros(z.shape[0], z.shape[1], self.out_dim, device=z.device)
+        np_2 = torch.zeros_like(np_1, device=z.device)
 
         # Pass through individual networks.
         for dim, z_dim in enumerate(z.transpose(0, 1)):
