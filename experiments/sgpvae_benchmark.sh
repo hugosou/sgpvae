@@ -8,4 +8,4 @@
 #SBATCH --gres=gpu:1
 #
 
-srun -u python poisson_ball.py  --use-gpu
+srun -u python poisson_ball.py --use-gpu

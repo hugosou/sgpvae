@@ -251,6 +251,8 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
+    parser.parse_args(None)
+
     # Kernel.
     parser.add_argument('--init_lengthscale', default=0.05, type=float)
     parser.add_argument('--init_scale', default=1., type=float)
