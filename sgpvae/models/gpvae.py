@@ -40,7 +40,7 @@ class GPVAE(VAE):
 
     def pf(self, x, diag=False):
         """Return latent prior."""
-        pf_mu = torch.zeros(self.latent_dim, x.shape[0], device=torch.device)
+        pf_mu = torch.zeros(self.latent_dim, x.shape[0], device=x.device)
         pf_cov = self.kernels.forward(x, x, diag)
 
         if self.add_jitter:
