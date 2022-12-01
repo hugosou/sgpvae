@@ -206,9 +206,6 @@ def main(args):
         for batch in loader:
             x_b, y_b, idx = batch
 
-            print(x_b.device)
-            print(y_b.device)
-
             optimiser.zero_grad()
             loss = 0
             for cur_observation in range(num_observation):

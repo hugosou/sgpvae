@@ -11,6 +11,6 @@ def add_diagonal(x, val=1.):
     """
     assert x.shape[-2] == x.shape[-1], 'x must be square.'
 
-    d = (torch.ones(x.shape[-2]) * val).diag_embed()
+    d = (torch.ones(x.shape[-2], device=x.device) * val).diag_embed()
 
     return x + d
