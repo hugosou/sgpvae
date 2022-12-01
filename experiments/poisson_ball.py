@@ -52,7 +52,7 @@ initial_sigma = .1
 transform = False
 elbo_subset = False
 
-epochs = 2
+epochs = 40000
 cache_freq = 100
 batch_size = 100
 lr = 0.001
