@@ -186,6 +186,10 @@ def main(args):
             likelihood.to(device.index), variational_dist.to(device.index), args.latent_dim, kernel, z_init,
             add_jitter=args.add_jitter, fixed_inducing=args.fixed_inducing)
 
+        print('LOOK HERE')
+        print(likelihood.network.layers[0].weight.device)
+        print(variational_dist.networks[0].network.layers[0].weight.device)
+
     elif args.model == 'vae':
         model = sgpvae.models.VAE(
             likelihood, variational_dist, args.latent_dim)
