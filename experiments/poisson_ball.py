@@ -182,8 +182,8 @@ def main(args):
         z_init = torch.linspace(
             0, x[-1].item(), steps=args.num_inducing, device=device).unsqueeze(1)
 
-        likelihood = likelihood.to(device.index)
-        variational_dist = variational_dist.to(device.index)
+        likelihood = likelihood.to(device)
+        variational_dist = variational_dist.to(device)
 
         model = sgpvae.models.SGPVAE(
             likelihood, variational_dist, args.latent_dim, kernel, z_init,
