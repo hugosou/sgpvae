@@ -288,8 +288,8 @@ class SGPVAE(GPVAE):
         # KL(q(u) || p(u)) term.
 
         print('hhere')
-        print(qu.device)
-        print(pu.device)
+        print(qu.loc.device)
+        print(pu.loc.device)
 
         kl = kl_divergence(qu, pu).sum()
 
