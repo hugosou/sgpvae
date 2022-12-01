@@ -180,7 +180,7 @@ def main(args):
 
     elif args.model == 'sgpvae':
         z_init = torch.linspace(
-            0, x[-1].item(), steps=args.num_inducing).unsqueeze(1)
+            0, x[-1].item(), steps=args.num_inducing, device=device).unsqueeze(1)
 
         model = sgpvae.models.SGPVAE(
             likelihood, variational_dist, args.latent_dim, kernel, z_init,
@@ -205,6 +205,9 @@ def main(args):
         losses = []
         for batch in loader:
             x_b, y_b, idx = batch
+
+            print(x_b.device)
+            print(y_b.device)
 
             optimiser.zero_grad()
             loss = 0
