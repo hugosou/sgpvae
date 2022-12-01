@@ -207,7 +207,7 @@ def main(args):
             x_b, y_b, idx = batch
 
             optimiser.zero_grad()
-            loss = 0
+            loss = torch.tensor([0], device=device)
             for cur_observation in range(num_observation):
                 loss -= model.elbo(x_b, y_b[:, :, cur_observation], None, num_samples=1)
             loss.backward()
