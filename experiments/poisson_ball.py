@@ -84,7 +84,7 @@ def main(args):
     observation_samples = torch.poisson(rate_model)
 
     # Convert Observations
-    observations = torch.tensor(observation_samples, dtype=data_type, device=device)
+    observations = torch.tensor(observation_samples, dtype=data_type)
 
     y = observations.permute(1, 2, 0)
     x = torch.linspace(0, 1, y.shape[0], device=device).unsqueeze(-1)
@@ -93,6 +93,9 @@ def main(args):
     y_mean, y_std = np.nanmean(y, axis=0), np.nanstd(y, axis=0)
     y = (y - y_mean) / y_std
     batch_size = len_observation
+
+    x = torch.tensor(x, device=device)
+    y = torch.tensor(y, device=device)
 
     dataset = sgpvae.utils.dataset.TupleDataset(x, y, missing=False)
     loader = torch.utils.data.DataLoader(
