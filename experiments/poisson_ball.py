@@ -278,7 +278,7 @@ if __name__ == '__main__':
     parser.add_argument('--elbo_subset', default=False, type=str2bool)
 
     # Training.
-    parser.add_argument('--epochs', default=10, type=int)
+    parser.add_argument('--epochs', default=40000, type=int)
     parser.add_argument('--cache_freq', default=100, type=int)
     parser.add_argument('--batch_size', default=100, type=int)
     parser.add_argument('--lr', default=0.001, type=float)
