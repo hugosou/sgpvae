@@ -266,10 +266,10 @@ for epoch in epoch_iter:
 
 latent_mean_tot = torch.zeros(num_observation, x.shape[0])
 
-for cur_observation in range(num_observation):
-    latent_mean_tot[cur_observation] = (model.qf(dataset.x, dataset.y[:, :, cur_observation])[0].loc).squeeze(0)
+#for cur_observation in range(num_observation):
+#    latent_mean_tot[cur_observation] = (model.qf(dataset.x, dataset.y[:, :, cur_observation])[0].loc).squeeze(0)
 
-latent_mean_tot = latent_mean_tot.to("cpu")
+#latent_mean_tot = latent_mean_tot.to("cpu")
 
 results = {'latent_mean': latent_mean_tot, 'loss': loss_tot, 'time': time_tot}
 model_name = './../../results_gp_rpm/2sgpvae_poisson_' \
