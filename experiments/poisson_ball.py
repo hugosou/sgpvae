@@ -36,7 +36,7 @@ init_scale = 1.0
 model = 'sgpvae'
 likelihood = 'nn'
 pinference_net = 'factornet'
-latent_dim = 1
+latent_dim = 2
 f_dim = 3
 w_dim = 3
 decoder_dims = [50, 50]
@@ -80,7 +80,7 @@ else:
     print('GP-RPM on CPU')
 
 # Dimension of the observations
-num_observation = 50
+num_observation = 30
 dim_observation = 10
 len_observation = 50
 
