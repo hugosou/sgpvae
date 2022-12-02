@@ -57,6 +57,10 @@ cache_freq = 100
 batch_size = 100
 lr = 0.001
 
+num_observation = 10
+dim_observation = 10
+len_observation = 50
+
 save = False
 results_dir = './_results/eeg/'
 
@@ -80,9 +84,7 @@ else:
     print('GP-RPM on CPU')
 
 # Dimension of the observations
-num_observation = 30
-dim_observation = 10
-len_observation = 50
+
 
 
 # Sampling Frequency
